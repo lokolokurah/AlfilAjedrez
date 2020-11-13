@@ -2,8 +2,6 @@ package org.iesalandalus.programacion.alfilajedrez;
 
 public class Alfil {
 
-	//fix
-	
 	private Color color;
 	private Posicion posicion;
 	
@@ -12,10 +10,8 @@ public class Alfil {
 		setPosicion(new Posicion(8, 'f'));
 	}
 
-	public Alfil(Color color)
-	{
+	public Alfil(Color color) {
 		setColor(color);
-
 		switch(color)
 		{
 		case BLANCO:
@@ -29,6 +25,20 @@ public class Alfil {
 		}
 	}
 	
+	public Alfil(Color color, char columnaInicial) {
+		setColor(color);	
+		if (color==Color.BLANCO)
+		{
+				setPosicion(new Posicion(1, columnaInicial));
+				setColor(color.BLANCO);
+		}
+		if (color==Color.NEGRO) 
+		{
+				setPosicion(new Posicion(8, columnaInicial));
+				setColor(color.NEGRO);
+		}
+	}
+	
 	public void setPosicion(Posicion posicion) {
 		if (posicion==null) 
 		{
@@ -38,7 +48,7 @@ public class Alfil {
 		{
 			throw new IllegalArgumentException("ERROR: Fila no válida.");
 		} 
-		else if (posicion.getColumna()<'a' || posicion.getColumna()>'h') 
+		else if (posicion.getColumna()!='c' && posicion.getColumna()=='f') 
 		{
 			throw new IllegalArgumentException("ERROR: Columna no válida.");
 		} 
