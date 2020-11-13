@@ -48,7 +48,7 @@ public class Alfil {
 		{
 			throw new IllegalArgumentException("ERROR: Fila no válida.");
 		} 
-		else if (posicion.getColumna()!='c' && posicion.getColumna()=='f') 
+		else if (posicion.getColumna()!='c' && posicion.getColumna()!='f') 
 		{
 			throw new IllegalArgumentException("ERROR: Columna no válida.");
 		} 
