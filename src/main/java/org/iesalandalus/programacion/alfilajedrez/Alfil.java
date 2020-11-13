@@ -1,5 +1,8 @@
 package org.iesalandalus.programacion.alfilajedrez;
 
+import org.iesalandalus.programacion.peonajedrez.Color;
+import org.iesalandalus.programacion.peonajedrez.Posicion;
+
 public class Alfil {
 
 	private Color color;
@@ -10,6 +13,23 @@ public class Alfil {
 		setPosicion(new Posicion(8, 'f'));
 	}
 
+	public Alfil(Color color)
+	{
+		setColor(color);
+
+		switch(color)
+		{
+		case BLANCO:
+			setPosicion(new Posicion(1,'f'));
+			setColor(color.BLANCO);
+			break;
+		case NEGRO:
+			setPosicion(new Posicion(8,'f'));
+			setColor(color.NEGRO);
+			break;
+		}
+	}
+	
 	public void setPosicion(Posicion posicion) {
 		if (posicion==null) 
 		{
