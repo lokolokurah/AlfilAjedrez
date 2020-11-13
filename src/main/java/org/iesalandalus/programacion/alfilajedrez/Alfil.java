@@ -1,8 +1,5 @@
 package org.iesalandalus.programacion.alfilajedrez;
 
-import org.iesalandalus.programacion.peonajedrez.Color;
-import org.iesalandalus.programacion.peonajedrez.Posicion;
-
 public class Alfil {
 
 	private Color color;
