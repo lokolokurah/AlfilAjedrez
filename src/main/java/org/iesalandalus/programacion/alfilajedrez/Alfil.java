@@ -2,6 +2,8 @@ package org.iesalandalus.programacion.alfilajedrez;
 
 public class Alfil {
 
+	//fix
+	
 	private Color color;
 	private Posicion posicion;
 	
