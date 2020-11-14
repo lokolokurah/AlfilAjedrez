@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.alfilajedrez;
 
+import org.iesalandalus.programacion.utilidades.Entrada;
+
 public class MainApp {
 
 	private static Alfil alfil;
@@ -11,14 +13,14 @@ public class MainApp {
 	}
 
 	private static void mostrarAlfil() {
-		System.out.println("----------------------------------------------------------");
-		System.out.println(" Nueva Modificación:");
-		System.out.println(" --------------------------------------");
-		System.out.println(" | Alfil:                              |");
-		System.out.println(" | "+alfil.toString()+"     |");
-		System.out.println(" --------------------------------------");
+		System.out.println("*--------------------");
+		System.out.println("| Nueva Modificación |");
+		System.out.println("*--------------------------------------");
+		System.out.println("| Alfil:                              |");
+		System.out.println("| "+alfil.toString()+"     			  |");
+		System.out.println("*-------------------------------------*");
 	}
-	
+
 	private static void mostrarMenu() {     
 		System.out.println("*---------*");
 		System.out.println("|  Menú:  |");
@@ -29,6 +31,15 @@ public class MainApp {
 		System.out.println("| 4- Mover alfil                                           |");
 		System.out.println("| 5- Salir                                                 |");
 		System.out.println("*----------------------------------------------------------*");
+	}
+
+	private static int elegirOpcion() {
+		int opcion;
+		do {
+			System.out.print(" Elige una opción: ");
+			opcion= Entrada.entero();
+		} while (opcion<0 || opcion>5);
+		return opcion;
 	}
 
 }
