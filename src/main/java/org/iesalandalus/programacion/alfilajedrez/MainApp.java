@@ -41,5 +41,26 @@ public class MainApp {
 		} while (opcion<0 || opcion>5);
 		return opcion;
 	}
+	
+	private static Color elegirColor() {
+		int seleccion;
+		Color color=Color.BLANCO;
+
+		do {
+			System.out.println("----------------------------------------------------------");
+			System.out.print(" Selecione un color: [1.-Negro] | [2.-Blanco]: ");
+			seleccion=Entrada.entero();
+		} while (seleccion<1 || seleccion>2);
+		switch (seleccion)
+		{
+		case 1:
+			color=Color.NEGRO;
+			break;
+		case 2:
+			color=Color.BLANCO;
+			break;                
+		}
+		return color;
+	}
 
 }
