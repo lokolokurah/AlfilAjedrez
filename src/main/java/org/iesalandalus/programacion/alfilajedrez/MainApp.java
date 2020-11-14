@@ -22,9 +22,9 @@ public class MainApp {
 	}
 
 	private static void mostrarMenu() {     
-		System.out.println("*---------*");
-		System.out.println("|  Menú:  |");
-		System.out.println("*---------*------------------------------------------------*");
+		System.out.println("*----------*");
+		System.out.println("|   Menú   |");
+		System.out.println("*----------*------------------------------------------------*");
 		System.out.println("| 1- Crear alfil por defecto                               |");
 		System.out.println("| 2- Crear alfil de un color ( blanco o negro)             |");
 		System.out.println("| 3- Crear alfil de un color en una columna inicial válida |");
@@ -62,8 +62,12 @@ public class MainApp {
 		Color color=Color.BLANCO;
 
 		do {
-			System.out.println("----------------------------------------------------------");
-			System.out.print(" Selecione un color: [1.-Negro] | [2.-Blanco]: ");
+			System.out.println("*--------------------*");
+			System.out.println("| Selecione un color |");
+			System.out.println("|--------------------|");
+			System.out.println("| 1- Negro           |");
+			System.out.println("| 2- Blanco          |");
+			System.out.println("*--------------------*");
 			seleccion=Entrada.entero();
 		} while (seleccion<1 || seleccion>2);
 		switch (seleccion)
@@ -78,11 +82,27 @@ public class MainApp {
 		return color;
 	}
 
+	public static void crearAlfilColorColumna() {
+		Color color;
+		char columna;
+		color= elegirColor();
+		columna=elegirColumnaInicial();
+		try {
+			alfil = new Alfil (color,columna);
+		} catch (IllegalArgumentException e) { 
+			System.out.println(" ERROR: No se ha creado el alfil. ");
+			System.out.println(e.getMessage());       
+		}
+		mostrarAlfil();
+	}
+	
 	public static char elegirColumnaInicial() {
 		char columna;
 		do {
-			System.out.println("----------------------------------------------------------");
-			System.out.print(" Introduce la columna de partida deseada(c o f: ");
+			System.out.println("*---------------------------------------------------*");
+			System.out.println("| Introduce la columna de partida deseada [c] o [f] |");
+			System.out.println("*---------------------------------------------------*");
+			System.out.print("Columna de partida: ");
 			columna=Entrada.caracter();
 		} while (columna !='c' && columna !='f');
 		return columna;
@@ -91,7 +111,7 @@ public class MainApp {
 	public static void mostrarMenuDirecciones() {
 		System.out.println(" *------------------------------------*");
 		System.out.println(" | Elige donde deseas mover el alfil |");
-		System.out.println(" ------------------------------------*");
+		System.out.println(" *-----------------------------------*");
 		System.out.println(" | 1. Arriba y Derecha               |");
 		System.out.println(" | 2. Arriba e Izquierda             |");
 		System.out.println(" | 3. Abajo y Derecha                |");
