@@ -9,18 +9,19 @@ public class MainApp {
 	private static Alfil alfil;
 
 	public static void main(String[] args) {
-		System.out.println("Programa para aprender a colocar y mover un alfil en el tablero de ajedrez");
-		System.out.println("-------------------------------------------------------------------------");
+		System.out.println("*----------------------------------------------------------------------------*");
+		System.out.println("| Programa para aprender a colocar y mover un alfil en el tablero de ajedrez |");
+		System.out.println("*----------------------------------------------------------------------------*");
 		mostrarMenu();
+		ejecutarOpcion();
 	}
 
 	private static void mostrarAlfil() {
-		System.out.println("*--------------------");
+		System.out.println("*--------------------*");
 		System.out.println("| Nueva Modificación |");
-		System.out.println("*--------------------------------------");
-		System.out.println("| Alfil:                              |");
-		System.out.println("| "+alfil.toString()+"     			  |");
-		System.out.println("*-------------------------------------*");
+		System.out.println("*--------------------*");
+		System.out.println(" Alfil:");
+		System.out.println(" "+alfil.toString());
 	}
 
 	private static void mostrarMenu() {     
@@ -42,6 +43,45 @@ public class MainApp {
 			opcion= Entrada.entero();
 		} while (opcion<0 || opcion>5);
 		return opcion;
+	}
+	
+	private static void ejecutarOpcion()
+	{
+		switch(elegirOpcion()){
+		case 1:
+			crearAlfilDefecto();
+			mostrarMenu();
+			ejecutarOpcion();
+			break;
+		case 2:
+			crearAlfilColor();
+			mostrarMenu();
+			ejecutarOpcion();
+			break;
+		case 3:
+			crearAlfilColorColumna();
+			mostrarMenu();
+			ejecutarOpcion();
+			break;
+		case 4:
+			if (alfil==null) {
+				System.out.println("*------------------------------------*");
+				System.out.println("| ¡Crea un alfil para poder moverlo! |");
+				System.out.println("*------------------------------------*");
+				mostrarMenu();
+				ejecutarOpcion();
+			}
+			try {
+				mover();
+			} catch (OperationNotSupportedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		case 5:
+			System.exit(0);
+			break;
+		}
 	}
 	
 	private static void crearAlfilDefecto() {
@@ -70,6 +110,7 @@ public class MainApp {
 			System.out.println("| 1- Negro           |");
 			System.out.println("| 2- Blanco          |");
 			System.out.println("*--------------------*");
+			System.out.print(" Elige una opción: ");
 			seleccion=Entrada.entero();
 		} while (seleccion<1 || seleccion>2);
 		switch (seleccion)
@@ -104,7 +145,7 @@ public class MainApp {
 			System.out.println("*---------------------------------------------------*");
 			System.out.println("| Introduce la columna de partida deseada [c] o [f] |");
 			System.out.println("*---------------------------------------------------*");
-			System.out.print("Columna de partida: ");
+			System.out.print(" Columna de partida: ");
 			columna=Entrada.caracter();
 		} while (columna !='c' && columna !='f');
 		return columna;
@@ -116,45 +157,53 @@ public class MainApp {
 		try {
 			switch (elegirDireccion()) {
 			case 1: 
-				System.out.println("¿Cuantas casillas deseas moverte?");
+				System.out.print(" ¿Cuantas casillas deseas moverte? ");
 				pasos = Entrada.entero();
 				alfil.mover(Direccion.ARRIBA_DERECHA, pasos);
+				mostrarAlfil();
 				mover();
 				break;
 			case 2: 
-				System.out.println("¿Cuantas casillas deseas moverte?");
+				System.out.print(" ¿Cuantas casillas deseas moverte? ");
 				pasos = Entrada.entero();
 				alfil.mover(Direccion.ARRIBA_IZQUIERDA, pasos);
+				mostrarAlfil();
 				mover();
 				break;
 			case 3: 
-				System.out.println("¿Cuantas casillas deseas moverte?");
+				System.out.print(" ¿Cuantas casillas deseas moverte? ");
 				pasos = Entrada.entero();
 				alfil.mover(Direccion.ABAJO_DERECHA, pasos);
+				mostrarAlfil();
 				mover();
 				break;
 			case 4: 
-				System.out.println("¿Cuantas casillas deseas moverte?");
+				System.out.print(" ¿Cuantas casillas deseas moverte? ");
 				pasos = Entrada.entero();
 				alfil.mover(Direccion.ABAJO_IZQUIERDA, pasos);
+				mostrarAlfil();
 				mover();
 				break;
+			case 5: 
+				mostrarMenu();
+				ejecutarOpcion();
 			}
 		} catch (OperationNotSupportedException e) {
-			System.out.println("Esta operación no es posible.");
+			System.out.println(" ERROR: Esta operación no es posible. ");
+			mover();
 		}
 	}
 	
 	public static void mostrarMenuDirecciones() {
-		System.out.println(" *------------------------------------*");
-		System.out.println(" | Elige donde deseas mover el alfil |");
-		System.out.println(" *-----------------------------------*");
-		System.out.println(" | 1. Arriba y Derecha               |");
-		System.out.println(" | 2. Arriba e Izquierda             |");
-		System.out.println(" | 3. Abajo y Derecha                |");
-		System.out.println(" | 4. Abajo e Izquierda              |");
-		System.out.println(" | 5. Volver                         |");
-		System.out.println(" *-----------------------------------*");
+		System.out.println("*-----------------------------------*");
+		System.out.println("| Elige donde deseas mover el alfil |");
+		System.out.println("*-----------------------------------*");
+		System.out.println("| 1. Arriba y Derecha               |");
+		System.out.println("| 2. Arriba e Izquierda             |");
+		System.out.println("| 3. Abajo y Derecha                |");
+		System.out.println("| 4. Abajo e Izquierda              |");
+		System.out.println("| 5. Volver                         |");
+		System.out.println("*-----------------------------------*");
 	}     	
 	
 	private static int elegirDireccion() {
