@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.alfilajedrez;
 
+import javax.naming.OperationNotSupportedException;
+
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class MainApp {
@@ -106,6 +108,41 @@ public class MainApp {
 			columna=Entrada.caracter();
 		} while (columna !='c' && columna !='f');
 		return columna;
+	}
+	
+	private static void mover() throws OperationNotSupportedException {
+		int pasos;
+		mostrarMenuDirecciones();
+		try {
+			switch (elegirDireccion()) {
+			case 1: 
+				System.out.println("¿Cuantas casillas deseas moverte?");
+				pasos = Entrada.entero();
+				alfil.mover(Direccion.ARRIBA_DERECHA, pasos);
+				mover();
+				break;
+			case 2: 
+				System.out.println("¿Cuantas casillas deseas moverte?");
+				pasos = Entrada.entero();
+				alfil.mover(Direccion.ARRIBA_IZQUIERDA, pasos);
+				mover();
+				break;
+			case 3: 
+				System.out.println("¿Cuantas casillas deseas moverte?");
+				pasos = Entrada.entero();
+				alfil.mover(Direccion.ABAJO_DERECHA, pasos);
+				mover();
+				break;
+			case 4: 
+				System.out.println("¿Cuantas casillas deseas moverte?");
+				pasos = Entrada.entero();
+				alfil.mover(Direccion.ABAJO_IZQUIERDA, pasos);
+				mover();
+				break;
+			}
+		} catch (OperationNotSupportedException e) {
+			System.out.println("Esta operación no es posible.");
+		}
 	}
 	
 	public static void mostrarMenuDirecciones() {
