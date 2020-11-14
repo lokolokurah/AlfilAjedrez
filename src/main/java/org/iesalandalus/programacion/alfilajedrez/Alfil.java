@@ -162,7 +162,10 @@ public class Alfil {
 		Alfil other = (Alfil) obj;
 		return color == other.color && Objects.equals(posicion, other.posicion);
 	}
-	
-	
 
+	@Override
+	public String toString() {
+		return ("fila="+posicion.getFila()+", columna="+posicion.getColumna()+", color="+color);
+	}
+	
 }
