@@ -73,4 +73,16 @@ public class MainApp {
 		return columna;
 	}
 	
+	public static void mostrarMenuMovimientos() {
+		System.out.println(" *------------------------------------*");
+		System.out.println(" | Elige donde deseas mover el alfil |");
+		System.out.println(" ------------------------------------*");
+		System.out.println(" | 1. Arriba y Derecha               |");
+		System.out.println(" | 2. Arriba e Izquierda             |");
+		System.out.println(" | 3. Abajo y Derecha                |");
+		System.out.println(" | 4. Abajo e Izquierda              |");
+		System.out.println(" | 5. Volver                         |");
+		System.out.println(" *-----------------------------------*");
+	}     
+	
 }
