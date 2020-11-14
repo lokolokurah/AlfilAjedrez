@@ -42,6 +42,11 @@ public class MainApp {
 		return opcion;
 	}
 	
+	private static void crearAlfilDefecto() {
+		alfil = new Alfil();
+		mostrarAlfil();
+	}
+	
 	private static Color elegirColor() {
 		int seleccion;
 		Color color=Color.BLANCO;
