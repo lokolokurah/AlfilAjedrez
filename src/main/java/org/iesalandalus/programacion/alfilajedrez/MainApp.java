@@ -63,4 +63,14 @@ public class MainApp {
 		return color;
 	}
 
+	public static char elegirColumnaInicial() {
+		char columna;
+		do {
+			System.out.println("----------------------------------------------------------");
+			System.out.print(" Introduce la columna de partida deseada(c o f: ");
+			columna=Entrada.caracter();
+		} while (columna !='c' && columna !='f');
+		return columna;
+	}
+	
 }
