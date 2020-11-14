@@ -73,7 +73,7 @@ public class MainApp {
 		return columna;
 	}
 	
-	public static void mostrarMenuMovimientos() {
+	public static void mostrarMenuDirecciones() {
 		System.out.println(" *------------------------------------*");
 		System.out.println(" | Elige donde deseas mover el alfil |");
 		System.out.println(" ------------------------------------*");
@@ -83,6 +83,15 @@ public class MainApp {
 		System.out.println(" | 4. Abajo e Izquierda              |");
 		System.out.println(" | 5. Volver                         |");
 		System.out.println(" *-----------------------------------*");
-	}     
+	}     	
+	
+	private static int elegirDireccion() {
+		int direccion;
+		do {
+			System.out.print(" Elige una opción: ");
+			direccion=Entrada.entero();
+		}while(direccion<1 || direccion>5);
+		return direccion;
+	}
 	
 }
