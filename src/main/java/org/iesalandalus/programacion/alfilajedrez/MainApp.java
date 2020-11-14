@@ -47,6 +47,16 @@ public class MainApp {
 		mostrarAlfil();
 	}
 	
+	private static void crearAlfilColor() {
+		Color color;
+		color=elegirColor();
+		try {
+			alfil = new Alfil (color);
+		} catch (Exception e) { System.out.println(e.getMessage());
+		}
+		mostrarAlfil();
+	}
+	
 	private static Color elegirColor() {
 		int seleccion;
 		Color color=Color.BLANCO;
