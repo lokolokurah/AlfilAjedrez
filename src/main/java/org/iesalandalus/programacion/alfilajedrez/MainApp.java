@@ -9,6 +9,9 @@ public class MainApp {
 	private static Alfil alfil;
 
 	public static void main(String[] args) {
+		/**
+		* @author Jaime Ruiz Ramírez
+		*/
 		System.out.println("*----------------------------------------------------------------------------*");
 		System.out.println("| Programa para aprender a colocar y mover un alfil en el tablero de ajedrez |");
 		System.out.println("*----------------------------------------------------------------------------*");
